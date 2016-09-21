@@ -28,12 +28,14 @@ stop(_State) ->
 %%====================================================================
 %% Internal functions
 %%====================================================================
+
+-spec start_cowboy() -> 'ok'.
 start_cowboy() ->
     [{ok, IP}, {ok, Port}, {ok, Backlog}, {ok, MaxConnections}] = [application:get_env(insomnia, Env) || Env <- [ip, port, backlog, max_conn]],
     Dispatch = cowboy_router:compile([
         {'_', [
-            {"/api/v1/ping",        insomnia_http_api, [{action, ping}]},
-            {"/api/v1/request",     insomnia_http_api, [{action, request}]}
+            {"/api/v1/ping",        insomnia_http_api, #{action => ping}},
+            {"/api/v1/request",     insomnia_http_api, #{action => request}}
         ]}
     ]),
     %% backlog it's size of the TCP listen queue (maximum number of simultaneous connections for this listener), the value should be lower or equal then net.core.somaxconn (man 2 listen)
