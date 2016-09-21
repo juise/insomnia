@@ -1,0 +1,19 @@
+{application, insomnia,
+ [{description, "Insomnia"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { insomnia_app, []}},
+  {applications, [
+                  kernel,
+                  stdlib,
+
+                  lager,
+                  cowboy
+                 ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, []},
+  {links, []}
+ ]}.
