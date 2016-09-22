@@ -1,9 +1,20 @@
 insomnia
 =====
 
-An OTP application
+Simple MVP application
 
 Build
 -----
 
-    $ rebar3 compile
+    $ make
+
+Run
+---
+
+    $ make run
+
+Release
+-------
+
+    $ make rel
+
